@@ -1,0 +1,128 @@
+identity:
+  name: JimengVGFMI2VL20
+  author: parkerwen
+  label:
+    en_US: JimengVGFMI2VL20
+    zh_Hans: 即梦AI-图生视频S2.0Pro
+    pt_BR: JimengVGFMI2VL20
+description:
+  human:
+    en_US: JimengVGFMI2VL20 is a video generation API that supports image-to-video, deeply understanding image instructions to generate videos with excellent visual fluency. It supports fine-tuning of multi-dimensional parameters, providing a professional-level video generation experience for creative expression.
+    zh_Hans: 即梦同款S2.0 PRO 视频生成API，支持文生视频和图生视频，深度理解文字与图像指令，生成的视频视觉流畅度极佳。支持对多维参数进行精细调控，为创意表达带来专业级的视频生成体验。
+    pt_BR: JimengVGFMI2VL20 é uma API de geração de vídeo que suporta texto para vídeo e imagem para vídeo, compreendendo profundamente as instruções de texto e imagem para gerar vídeos com excelente fluência visual. Suporta ajuste fino de parâmetros multidimensionais, proporcionando uma experiência de geração de vídeo em nível profissional para expressão criativa.
+  llm: JimengVGFMI2VL20 is a video generation API that supports text-to-video and image-to-video, deeply understanding text and image instructions to generate videos with excellent visual fluency. It supports fine-tuning of multi-dimensional parameters, providing a professional-level video generation experience for creative expression.
+parameters:
+  - name: binary_data_base64_str
+    type: string
+    required: false
+    label:
+      en_US: Binary Data Base64 String
+      zh_Hans: 图片Base64字符串
+      pt_BR: String Base64 de Dados Binários
+    human_description:
+      en_US: Image file, base64 encoded.
+      zh_Hans: 图片文件，base64编码。
+      pt_BR: Arquivo de imagem, codificado em base64.
+    llm_description: Image file, base64 encoded.
+    form: llm
+  - name: image_url
+    type: string
+    required: false
+    label:
+      en_US: Image URL
+      zh_Hans: 图片文件URL
+      pt_BR: URLs de Arquivos de Imagem
+    human_description:
+      en_US: Image file URL.
+      zh_Hans: 图片文件URL。
+      pt_BR: URL do arquivo de imagem.
+    llm_description: Image file URL.
+    form: llm
+  - name: image_file
+    type: file
+    required: false
+    label:
+      en_US: Image File
+      zh_Hans: 图片文件
+      pt_BR: Arquivo de Imagem
+    human_description:
+      en_US: Image file.
+      zh_Hans: 图片文件。
+      pt_BR: Arquivo de imagem.
+    llm_description: Image file.
+    form: llm
+  - name: prompt
+    type: string
+    required: true
+    label:
+      en_US: Prompt
+      zh_Hans: 提示词
+      pt_BR: Prompt
+    human_description:
+      en_US: Prompt for video generation, supports both Chinese and English, within 150 characters. Refer to the API documentation for writing prompts.
+      zh_Hans: 生成视频的的提示词，支持中英文，150字符以内，prompt书写参考接口文档中的描述。
+      pt_BR: Prompt para geração de vídeo, suporta chinês e inglês, com até 150 caracteres. Consulte a documentação da API para escrever prompts.
+    llm_description: Prompt for video generation, supports both Chinese and English, within 150 characters. Refer to the API documentation for writing prompts.
+    form: llm
+  - name: seed
+    type: number
+    required: false
+    default: -1
+    label:
+      en_US: Seed
+      zh_Hans: 种子
+      pt_BR: Semente
+    human_description:
+      en_US: Random seed, which serves as the basis for determining the initial state of diffusion. Default is -1 (random). If the random seed is the same positive integer and all other parameters are consistent, the generated image will likely have a consistent effect.
+      zh_Hans: 随机种子，作为确定扩散初始状态的基础，默认-1（随机）。若随机种子为相同正整数且其他参数均一致，则生成图片极大概率效果一致。
+      pt_BR: Semente aleatória, que serve como base para determinar o estado inicial da difusão. O padrão é -1 (aleatório). Se a semente aleatória for o mesmo número inteiro positivo e todos os outros parâmetros forem consistentes, a imagem gerada provavelmente terá um efeito consistente.
+    llm_description: Random seed, which serves as the basis for determining the initial state of diffusion. Default is -1 (random). If the random seed is the same positive integer and all other parameters are consistent, the generated image will likely have a consistent effect.
+    form: llm
+  - name: aspect_ratio
+    type: select
+    required: false
+    default: "16:9"
+    options:
+      - value: "16:9"
+        label:
+          en_US: 1280×720 (default)
+          zh_Hans: 1280×720（默认）
+          pt_BR: 1280×720 (padrão)
+      - value: "9:16"
+        label:
+          en_US: 720×1280
+          zh_Hans: 720×1280
+          pt_BR: 720×1280
+      - value: "1:1"
+        label:
+          en_US: 960×960
+          zh_Hans: 960×960
+          pt_BR: 960×960
+      - value: "4:3"
+        label:
+          en_US: 960×720
+          zh_Hans: 960×720
+          pt_BR: 960×720
+      - value: "3:4"
+        label:
+          en_US: 720×960
+          zh_Hans: 720×960
+          pt_BR: 720×960
+      - value: "21:9"
+        label:
+          en_US: 1680 × 720
+          zh_Hans: 1680 × 720
+          pt_BR: 1680 × 720
+    label:
+      en_US: Aspect Ratio
+      zh_Hans: 生成视频的尺寸
+      pt_BR: Proporção Largura-Altura
+    human_description:
+      en_US: The width of the generated video.
+      zh_Hans: 生成视频的尺寸。
+      pt_BR: Largura do vídeo gerado.
+    llm_description: The width of the generated video.
+    form: form
+extra:
+  python:
+    source: tools/jimeng_vgfm_i2v_l20.py

@@ -1,0 +1,63 @@
+credentials_for_provider:
+  openai_api_key:
+    help:
+      en_US: Please input your OpenAI API key
+      pt_BR: Please input your OpenAI API key
+      zh_Hans: 请输入你的 OpenAI API key
+    label:
+      en_US: OpenAI API key
+      pt_BR: OpenAI API key
+      zh_Hans: OpenAI API key
+    placeholder:
+      en_US: Please input your OpenAI API key
+      pt_BR: Please input your OpenAI API key
+      zh_Hans: 请输入你的 OpenAI API key
+    required: false
+    type: secret-input
+  openai_base_url:
+    help:
+      en_US: Please input OpenAI base URL
+      pt_BR: Please input OpenAI base URL
+      zh_Hans: 请输入 OpenAI base URL
+    label:
+      en_US: OpenAI base URL
+      pt_BR: OpenAI base URL
+      zh_Hans: OpenAI base URL
+    placeholder:
+      en_US: Please input OpenAI base URL
+      pt_BR: Please input OpenAI base URL
+      zh_Hans: 请输入 OpenAI base URL
+    required: false
+    type: text-input
+  openai_model:
+    help:
+      en_US: Please input your OpenAI model
+      pt_BR: Please input your OpenAI model
+      zh_Hans: 请输入你的 OpenAI 模型
+    label:
+      en_US: OpenAI model
+      pt_BR: OpenAI model
+      zh_Hans: OpenAI model
+    placeholder:
+      en_US: Please input OpenAI model
+      pt_BR: Please input OpenAI model
+      zh_Hans: 请输入 OpenAI 模型
+    required: false
+    type: text-input
+identity:
+  author: parkerwen
+  name: markitdown
+  label:
+    en_US: markitdown
+    zh_Hans: markitdown
+    pt_BR: markitdown
+  description:
+    en_US: markitdown
+    zh_Hans: markitdown
+    pt_BR: markitdown
+  icon: icon.png
+tools:
+  - tools/markitdown.yaml
+extra:
+  python:
+    source: provider/markitdown.py

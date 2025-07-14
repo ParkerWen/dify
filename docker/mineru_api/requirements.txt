@@ -1,0 +1,6 @@
+magic-pdf[full]
+
+modelscope
+fastapi
+uvicorn
+python-multipart

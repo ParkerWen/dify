@@ -1,0 +1,221 @@
+identity:
+  name: JimengHighAESGeneralV21L
+  author: parkerwen
+  label:
+    en_US: JimengHighAESGeneralV21L
+    zh_Hans: 即梦AI-图像生成
+    pt_BR: JimengHighAESGeneralV21L
+description:
+  human:
+    en_US: Jimeng High AES General V2.1 text-to-image API, accurately interprets text input to generate images that align with the semantics and possess unique aesthetics. Seamlessly connects creative ideas with visual presentation, achieving "what you see is what you think" with one click. This service focuses on supporting rendering of Chinese and English characters.
+    zh_Hans: 即梦同款V2.1文生图API，精准解读文字片输入，生成符合语意和有独特审美的图像内容。无缝衔接创意构思与视觉呈现，一键实现「所见即所想」。本服务重点支持了中英文字符渲染。
+    pt_BR: API de texto para imagem Jimeng High AES General V2.1, interpreta com precisão a entrada de texto para gerar imagens que alinham com a semântica e possuem estética única. Conecta perfeitamente ideias criativas com apresentação visual, alcançando "o que você vê é o que você pensa" com um clique. Este serviço foca no suporte à renderização de caracteres chineses e ingleses.
+  llm: Jimeng High AES General V2.1 text-to-image API, accurately interprets text input to generate images that align with the semantics and possess unique aesthetics. Seamlessly connects creative ideas with visual presentation, achieving "what you see is what you think" with one click. This service focuses on supporting rendering of Chinese and English characters.
+parameters:
+  - name: prompt
+    type: string
+    required: true
+    label:
+      en_US: Prompt
+      zh_Hans: 提示词
+      pt_BR: Prompt
+    human_description:
+      en_US: Prompt for image generation, can be input in both Chinese and English.
+      zh_Hans: 用于生成图像的提示词 ，中英文均可输入。
+      pt_BR: Prompt para geração de imagem, pode ser inserido em chinês e inglês.
+    llm_description: Prompt for image generation, can be input in both Chinese and English.
+    form: llm
+  - name: use_pre_llm
+    type: boolean
+    required: false
+    default: true
+    label:
+      en_US: Use Pre-LLM
+      zh_Hans: 开启文本扩写
+      pt_BR: Usar Pre-LLM
+    human_description:
+      en_US: Enable text expansion, which optimizes the input prompt. It is recommended to enable this if the input prompt is short, and disable it if the input prompt is long.
+      zh_Hans: 开启文本扩写，会针对输入prompt进行扩写优化，如果输入prompt较短建议开启，如果输入prompt较长建议关闭。
+      pt_BR: Habilitar expansão de texto, que otimiza o prompt de entrada. É recomendável habilitar isso se o prompt de entrada for curto e desabilitar se o prompt de entrada for longo.
+    llm_description: Enable text expansion, which optimizes the input prompt. It is recommended to enable this if the input prompt is short, and disable it if the input prompt is long.
+    form: form
+  - name: seed
+    type: number
+    required: false
+    default: -1
+    label:
+      en_US: Seed
+      zh_Hans: 种子
+      pt_BR: Semente
+    human_description:
+      en_US: Random seed, which serves as the basis for determining the initial state of diffusion. Default is -1 (random). If the random seed is the same positive integer and all other parameters are consistent, the generated image will likely have a consistent effect.
+      zh_Hans: 随机种子，作为确定扩散初始状态的基础，默认-1（随机）。若随机种子为相同正整数且其他参数均一致，则生成图片极大概率效果一致。
+      pt_BR: Semente aleatória, que serve como base para determinar o estado inicial da difusão. O padrão é -1 (aleatório). Se a semente aleatória for o mesmo número inteiro positivo e todos os outros parâmetros forem consistentes, a imagem gerada provavelmente terá um efeito consistente.
+    llm_description: Random seed, which serves as the basis for determining the initial state of diffusion. Default is -1 (random). If the random seed is the same positive integer and all other parameters are consistent, the generated image will likely have a consistent effect.
+    form: llm
+  - name: width
+    type: number
+    required: false
+    default: 1328
+    min: 512
+    max: 2048
+    label:
+      en_US: Width
+      zh_Hans: 宽度
+      pt_BR: Largura
+    human_description:
+      en_US: Width of the generated image. Default is 1328.
+      zh_Hans: 生成图像的宽
+      pt_BR: Largura da imagem gerada. O padrão é 1328.
+    llm_description: Width of the generated image. Default is 1328.
+    form: llm
+  - name: height
+    type: number
+    required: false
+    default: 1328
+    min: 512
+    max: 2048
+    label:
+      en_US: Height
+      zh_Hans: 高度
+      pt_BR: Altura
+    human_description:
+      en_US: Height of the generated image. Default is 1328.
+      zh_Hans: 生成图像的高
+      pt_BR: Altura da imagem gerada. O padrão é 1328.
+    llm_description: Height of the generated image. Default is 1328.
+    form: llm
+  - name: use_sr
+    type: boolean
+    required: false
+    default: true
+    label:
+      en_US: Use Super Resolution
+      zh_Hans: 是否AIGC超分
+      pt_BR: Usar Super Resolução
+    human_description:
+      en_US: Whether to use AIGC super resolution (applies super resolution to the generated image).
+      zh_Hans: 图生图+AIGC超分（将生成图片进行内置超分）
+      pt_BR: Se deve usar super resolução AIGC (aplica super resolução à imagem gerada).
+    llm_description: Whether to use AIGC super resolution (applies super resolution to the generated image).
+    form: form
+  - name: return_url
+    type: boolean
+    required: false
+    default: true
+    label:
+      en_US: Return URL
+      zh_Hans: 是否返回图片链接
+      pt_BR: Retornar URL
+    human_description:
+      en_US: Whether to return the image URL (valid for 24 hours).
+      zh_Hans: 输出是否返回图片链接 （链接有效期为24小时）
+      pt_BR: Se deve retornar a URL da imagem (válida por 24 horas).
+    llm_description: Whether to return the image URL (valid for 24 hours).
+    form: form
+  - name: add_logo
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Add Logo
+      zh_Hans: 添加 Logo
+      pt_BR: Adicionar Logo
+    human_description:
+      en_US: Whether to add a watermark. True to add, False not to add. Default is not to add.
+      zh_Hans: 是否添加水印。True为添加，False不添加。默认不添加
+      pt_BR: Se deve adicionar uma marca d'água. True para adicionar, False para não adicionar. O padrão é não adicionar.
+    llm_description: Whether to add a watermark. True to add, False not to add. Default is not to add.
+    form: form
+  - name: position
+    type: select
+    required: false
+    default: 0
+    label:
+      en_US: Position
+      zh_Hans: 位置
+      pt_BR: Posição
+    options:
+      - label:
+          en_US: Bottom Right
+          zh_Hans: 右下角
+          pt_BR: Inferior Direito
+        value: 0
+      - label:
+          en_US: Bottom Left
+          zh_Hans: 左下角
+          pt_BR: Inferior Esquerdo
+        value: 1
+      - label:
+          en_US: Top Left
+          zh_Hans: 左上角
+          pt_BR: Superior Esquerdo
+        value: 2
+      - label:
+          en_US: Top Right
+          zh_Hans: 右上角
+          pt_BR: Superior Direito
+        value: 3
+    human_description:
+      en_US: Position of the watermark.
+      zh_Hans: 水印的位置
+      pt_BR: Posição da marca d'água.
+    llm_description: Position of the watermark.
+    form: llm
+  - name: language
+    type: select
+    required: false
+    default: 0
+    label:
+      en_US: Language
+      zh_Hans: 水印的语言
+      pt_BR: Idioma
+    options:
+      - label:
+          en_US: Chinese (AI-generated)
+          zh_Hans: 中文（AI生成）
+          pt_BR: Chinês (gerado por IA)
+        value: 0
+      - label:
+          en_US: English (AI-generated)
+          zh_Hans: 英文（Generated by AI）
+          pt_BR: Inglês (gerado por IA)
+        value: 1
+    human_description:
+      en_US: Language of the watermark.
+      zh_Hans: 水印的语言
+      pt_BR: Idioma da marca d'água.
+    llm_description: Language of the watermark.
+    form: llm
+  - name: opacity
+    type: number
+    required: false
+    default: 0.3
+    min: 0
+    max: 1
+    label:
+      en_US: Opacity
+      zh_Hans: 透明度
+      pt_BR: Opacidade
+    human_description:
+      en_US: Opacity of the watermark, ranging from 0 to 1, where 1 is fully opaque. Default is 0.3.
+      zh_Hans: 水印的不透明度，取值范围0-1，1表示完全不透明，默认0.3
+      pt_BR: Opacidade da marca d'água, variando de 0 a 1, onde 1 é totalmente opaco. O padrão é 0.3.
+    llm_description: Opacity of the watermark, ranging from 0 to 1, where 1 is fully opaque. Default is 0.3.
+    form: llm
+  - name: logo_text_content
+    type: string
+    required: false
+    label:
+      en_US: Logo Text Content
+      zh_Hans: Logo 文本内容
+      pt_BR: Conteúdo do Texto do Logo
+    human_description:
+      en_US: Custom content for the watermark text.
+      zh_Hans: 明水印自定义内容
+      pt_BR: Conteúdo personalizado para o texto da marca d'água.
+    llm_description: Custom content for the watermark text.
+    form: llm
+extra:
+  python:
+    source: tools/jimeng_high_aes_general_v21_L.py

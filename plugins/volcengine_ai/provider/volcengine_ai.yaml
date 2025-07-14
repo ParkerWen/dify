@@ -1,0 +1,49 @@
+credentials_for_provider:
+  AccessKeyID:
+    label:
+      en_US: Access Key ID
+      zh_Hans: 访问密钥 ID
+      pt_BR: ID da Chave de Acesso
+    placeholder:
+      en_US: Please input your Access Key ID
+      zh_Hans: 请输入你的访问密钥 ID
+      pt_BR: Por favor, insira seu ID de Chave de Acesso
+    required: true
+    type: secret-input
+    url: https://console.volcengine.com/iam/keymanage/
+
+  AccessKeySecret:
+    label:
+      en_US: Access Key Secret
+      zh_Hans: 访问密钥 Secret
+      pt_BR: Chave de Acesso Secreta
+    placeholder:
+      en_US: Please input your Access Key Secret
+      zh_Hans: 请输入你的访问密钥 Secret
+      pt_BR: Por favor, insira sua Chave de Acesso Secreta
+    required: true
+    type: secret-input
+    url: https://console.volcengine.com/iam/keymanage/
+
+identity:
+  author: parkerwen
+  name: volcengine_ai
+  label:
+    en_US: Volcengine AI
+    zh_Hans: Volcengine AI
+    pt_BR: Volcengine AI
+  description:
+    en_US: Volcengine AI Ability.
+    zh_Hans: Volcengine AI Ability.
+    pt_BR: Volcengine AI Ability.
+  icon: icon_s_en.svg
+tools:
+  - tools/high_aes_general_v30l_zt2i.yaml
+  - tools/i2i_portrait_photo.yaml
+  - tools/seededit_v30.yaml
+  - tools/jimeng_high_aes_general_v21_L.yaml
+  - tools/jimeng_vgfm_t2v_l20.yaml
+  - tools/jimeng_vgfm_i2v_l20.yaml
+extra:
+  python:
+    source: provider/volcengine_ai.py

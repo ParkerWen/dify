@@ -1,0 +1,30 @@
+identity:
+  name: markitdown
+  author: parkerwen
+  label:
+    en_US: markitdown
+    zh_Hans: markitdown
+    pt_BR: markitdown
+description:
+  human:
+    en_US: markitdown
+    zh_Hans: markitdown
+    pt_BR: markitdown
+  llm: markitdown
+parameters:
+  - name: file
+    type: file
+    required: true
+    label:
+      en_US: Input File
+      zh_Hans: 输入的文件
+    human_description:
+      en_US: The input file.
+      zh_Hans: 输入的文件。
+    llm_description: The input file.
+    form: llm
+    file_types: ["*.pdf", "*.docx", "*.pptx", "*.xlsx", "*.xls", "*.txt"]
+
+extra:
+  python:
+    source: tools/markitdown.py
