@@ -42,6 +42,9 @@ tools:
   - tools/i2i_portrait_photo.yaml
   - tools/seededit_v30.yaml
   - tools/jimeng_high_aes_general_v21_L.yaml
+  - tools/jimeng_t2i_v30.yaml
+  - tools/jimeng_i2i_v30.yaml
+  - tools/jimeng_t2i_v31.yaml
   - tools/jimeng_vgfm_t2v_l20.yaml
   - tools/jimeng_vgfm_i2v_l20.yaml
 extra:
