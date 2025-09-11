@@ -1,4 +1,4 @@
-version: 0.0.1
+version: 0.0.2
 type: plugin
 author: parkerwen
 name: volcengine_ai
@@ -26,7 +26,7 @@ plugins:
   tools:
     - provider/volcengine_ai.yaml
 meta:
-  version: 0.0.1
+  version: 0.0.2
   arch:
     - amd64
     - arm64

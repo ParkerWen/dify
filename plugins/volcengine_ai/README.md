@@ -1,9 +1,11 @@
 ## Volcengine AI
 
 ## Overview
+
 [Volcengine (火山引擎)](https://www.volcengine.com/) is a cloud service platform offering AI model development, deployment, and management tools for data processing and analysis.
 
 ## Configuration
+
 ### 1. Register a Volcano Engine account and complete real-name authentication.
 
 For specific steps, please see [Account Registration](https://www.volcengine.com/docs/6261/64925?lang=zh) and [Real-Name Authentication](https://www.volcengine.com/docs/6261/64935?lang=zh).
@@ -36,7 +38,6 @@ You can use the Volcengine AI tool in the following application types.
 
 Both Chatflow and Workflow applications support adding Volcengine AI tool nodes.
 
-
 ## Nodes
 
 ![alt text](./_assets/v_3.png)
@@ -64,3 +65,19 @@ JimengVGFMT2VL20 is a video generation API that supports text-to-video and image
 ### JimengVGFMI2VL20
 
 JimengVGFMI2VL20 is a video generation API that supports image-to-video, deeply understanding image instructions to generate videos with excellent visual fluency. It supports fine-tuning of multi-dimensional parameters, providing a professional-level video generation experience for creative expression.
+
+### JimengI2IV30
+
+Image-to-Image V3.0 is the image-to-image capability of the same source as Jimeng. In terms of text response accuracy, graphic layout, hierarchical aesthetics, and semantic understanding capabilities, it has significantly improved compared to previous versions. The texture of portraits is more realistic, and it also supports outputting high-definition images. In addition, on the basis of more accurate text responses, it also supports response of large and small fonts, various artistic fonts, and different font weights.
+
+### JimengT2IV30
+
+Jimeng T2I V3.0 is the text-to-image capability of the same source as Jimeng. In terms of text response accuracy, graphic layout, hierarchical aesthetics, and semantic understanding capabilities, it has significantly improved compared to previous versions. The texture of portraits is more realistic, and it also supports outputting high-definition images. In addition, on the basis of more accurate text responses, it also supports response of large and small fonts, various artistic fonts, and different font weights.
+
+### JimengT2IV31
+
+Jimeng T2I V3.1 is the text-to-image capability of the same source as Jimeng. In terms of text response accuracy, graphic layout, hierarchical aesthetics, and semantic understanding capabilities, it has significantly improved compared to previous versions. The texture of portraits is more realistic, and it also supports outputting high-definition images. In addition, on the basis of more accurate text responses, it also supports response of large and small fonts, various artistic fonts, and different font weights.
+
+### Seed3lSingleIp
+
+Image-to-Image 3.0 - Character Feature Preservation DreamO is based on the self-developed Seedream 3.0 model, integrating proprietary subject preservation capabilities. It can maintain consistency between the output image's subject appearance/facial features/style characteristics and the input "single reference image", while supporting adjustments through text prompts. Subject appearance, facial features, and style characteristics work together with the input text during the generation process to create images that are consistent with the reference image's subject while conforming to the text description, achieving a balance between feature preservation and creative generation.
