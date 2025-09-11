@@ -1,16 +1,16 @@
 identity:
-  name: JimengI2IV30
+  name: Seed3lSingleIp
   author: parkerwen
   label:
-    en_US: JimengI2IV30
-    zh_Hans: 即梦图生图3.0智能参考
-    pt_BR: JimengI2IV30
+    en_US: Seed3lSingleIp
+    zh_Hans: 图生图3.0-角色特征保持DreamO
+    pt_BR: Seed3lSingleIp
 description:
   human:
-    en_US: Image-to-Image V3.0 is the image-to-image capability of the same source as Jimeng. In terms of text response accuracy, graphic layout, hierarchical aesthetics, and semantic understanding capabilities, it has significantly improved compared to previous versions. The texture of portraits is more realistic, and it also supports outputting high-definition images. In addition, on the basis of more accurate text responses, it also supports response of large and small fonts, various artistic fonts, and different font weights.
-    zh_Hans: 图生图3.0智能参考是即梦同源的图生图能力，支持基于文本指令进行图像编辑。该能力在精准执行编辑指令和保持图像内容完整性（如人物特征及精细细节）方面实现显著提升，尤其在处理真实图像和海报图文设计场景表现卓越。推荐在海报等设计等场景中，在文本指令中加入「海报」「平面设计」等词，并用引号标出期望文字时，可显著提升文字响应效果，产出高质量编辑结果，有效满足用户改图需求。
-    pt_BR: Image-to-Image V3.0 é a capacidade de imagem para imagem da mesma origem que Jimeng. Esta versão foca na atualização da apresentação de efeitos visuais, com melhorias significativas na criação de beleza visual, precisão e diversidade de estilos, e riqueza de detalhes visuais, ao mesmo tempo que mantém efeitos de resposta de texto.
-  llm: Image-to-Image V3.0 is the image-to-image capability of the same source as Jimeng. In terms of text response accuracy, graphic layout, hierarchical aesthetics, and semantic understanding capabilities, it has significantly improved compared to previous versions. The texture of portraits is more realistic, and it also supports outputting high-definition images. In addition, on the basis of more accurate text responses, it also supports response of large and small fonts, various artistic fonts, and different font weights.
+    en_US: Image-to-Image 3.0 - Character Feature Preservation DreamO is based on the self-developed Seedream 3.0 model, integrating proprietary subject preservation capabilities. It can maintain consistency between the output image's subject appearance/facial features/style characteristics and the input "single reference image", while supporting adjustments through text prompts. Subject appearance, facial features, and style characteristics work together with the input text during the generation process to create images that are consistent with the reference image's subject while conforming to the text description, achieving a balance between feature preservation and creative generation.
+    zh_Hans: 图生图3.0—角色特征保持DreamO基于Seedream 3.0自研模型，集成了自研的主体保持能力，可以保持输出图片主体外观/面部特征/风格特征与输入的「单图参考图」一致，且支持通过文本prompt进行调节。主体外观、面部特征和风格特征，三者在生图过程中跟输入文本共同起作用，生成跟输入参考图的主体一致又符合文本描述的图片，实现特征保持与创意生成的平衡。
+    pt_BR: Imagem para Imagem 3.0 - Preservação de Características de Personagem DreamO é baseado no modelo Seedream 3.0 desenvolvido internamente, integrando capacidades proprietárias de preservação de sujeito. Pode manter a consistência entre a aparência do sujeito/características faciais/características de estilo da imagem de saída e a "imagem de referência única" de entrada, enquanto suporta ajustes através de prompts de texto. Aparência do sujeito, características faciais e características de estilo trabalham juntas com o texto de entrada durante o processo de geração para criar imagens que são consistentes com o sujeito da imagem de referência enquanto se conformam à descrição do texto, alcançando um equilíbrio entre preservação de características e geração criativa.
+  llm: Image-to-Image 3.0 - Character Feature Preservation DreamO is based on the self-developed Seedream 3.0 model, integrating proprietary subject preservation capabilities. It can maintain consistency between the output image's subject appearance/facial features/style characteristics and the input "single reference image", while supporting adjustments through text prompts. Subject appearance, facial features, and style characteristics work together with the input text during the generation process to create images that are consistent with the reference image's subject while conforming to the text description, achieving a balance between feature preservation and creative generation. 
 parameters:
   - name: image_files
     type: files
@@ -30,28 +30,14 @@ parameters:
     required: true
     label:
       en_US: Prompt
-      zh_Hans: 提示词
+      zh_Hans: 用于编辑图像的提示词。
       pt_BR: Prompt
     human_description:
-      en_US: Prompt for image generation, can be input in both Chinese and English.
-      zh_Hans: 用于生成图像的提示词 ，中英文均可输入。
-      pt_BR: Prompt para geração de imagem, pode ser inserido em chinês e inglês.
-    llm_description: Prompt for image generation, can be input in both Chinese and English.
+      en_US: Prompt for image editing.
+      zh_Hans: 用于编辑图像的提示词。
+      pt_BR: Prompt para edição de imagem.
+    llm_description: Prompt for image editing.
     form: llm
-  - name: use_pre_llm
-    type: boolean
-    required: false
-    default: true
-    label:
-      en_US: Use Pre-LLM
-      zh_Hans: 开启文本扩写
-      pt_BR: Usar Pre-LLM
-    human_description:
-      en_US: Enable text expansion, which optimizes the input prompt. It is recommended to enable this if the input prompt is short, and disable it if the input prompt is long.
-      zh_Hans: 开启文本扩写，会针对输入prompt进行扩写优化，如果输入prompt较短建议开启，如果输入prompt较长建议关闭。
-      pt_BR: Habilitar expansão de texto, que otimiza o prompt de entrada. É recomendável habilitar isso se o prompt de entrada for curto e desabilitar se o prompt de entrada for longo.
-    llm_description: Enable text expansion, which optimizes the input prompt. It is recommended to enable this if the input prompt is short, and disable it if the input prompt is long.
-    form: form
   - name: seed
     type: number
     required: false
@@ -62,10 +48,24 @@ parameters:
       pt_BR: Semente
     human_description:
       en_US: Random seed, which serves as the basis for determining the initial state of diffusion. Default is -1 (random). If the random seed is the same positive integer and all other parameters are consistent, the generated image will likely have a consistent effect.
-      zh_Hans: 随机种子，作为确定扩散初始状态的基础，默认-1（随机）。若随机种子为相同正整数且其他参数均一致，则生成图片极大概率效果一致。
+      zh_Hans: 随机种子，作为确定扩散初始状态的基础，默认-1（随机）。若随机种子为相同正整数且其他参数均一致，则生成图片极大概率效果一致
       pt_BR: Semente aleatória, que serve como base para determinar o estado inicial da difusão. O padrão é -1 (aleatório). Se a semente aleatória for o mesmo número inteiro positivo e todos os outros parâmetros forem consistentes, a imagem gerada provavelmente terá um efeito consistente.
     llm_description: Random seed, which serves as the basis for determining the initial state of diffusion. Default is -1 (random). If the random seed is the same positive integer and all other parameters are consistent, the generated image will likely have a consistent effect.
     form: llm
+  - name: use_rephraser
+    type: boolean
+    required: false
+    default: true
+    label:
+      en_US: User Rephraser
+      zh_Hans: 用户改写器
+      pt_BR: Reescritor do Usuário 
+    human_description:
+      en_US: Whether to rewrite the input text prompt to optimize the effect. It is recommended to keep it enabled under normal conditions. If the input text is particularly long & there is a strong requirement not to change the input prompt content & there is a strong requirement to shorten the time consumption, this parameter can be disabled
+      zh_Hans: 是否对输入文本提示词进行改写，以优化效果，正常状态建议保持开启，如果输入文本特别长&强诉求不能改变输入提示词内容&强诉求缩短耗时，可关闭此参数
+      pt_BR: Se deve reescrever o prompt de texto de entrada para otimizar o efeito. É recomendado manter habilitado em condições normais. Se o texto de entrada for particularmente longo & houver uma forte exigência de não alterar o conteúdo do prompt de entrada & houver uma forte exigência de reduzir o tempo de consumo, este parâmetro pode ser desabilitado
+    llm_description: Whether to rewrite the input text prompt to optimize the effect. It is recommended to keep it enabled under normal conditions. If the input text is particularly long & there is a strong requirement not to change the input prompt content & there is a strong requirement to shorten the time consumption, this parameter can be disabled 
+    form: form
   - name: width
     type: number
     required: false
@@ -98,20 +98,6 @@ parameters:
       pt_BR: Altura da imagem gerada. O padrão é 1328.
     llm_description: Height of the generated image. Default is 1328.
     form: llm
-  - name: return_url
-    type: boolean
-    required: false
-    default: true
-    label:
-      en_US: Return URL
-      zh_Hans: 是否返回图片链接
-      pt_BR: Retornar URL
-    human_description:
-      en_US: Whether to return the image URL (valid for 24 hours).
-      zh_Hans: 输出是否返回图片链接 （链接有效期为24小时）
-      pt_BR: Se deve retornar a URL da imagem (válida por 24 horas).
-    llm_description: Whether to return the image URL (valid for 24 hours).
-    form: form
   - name: add_logo
     type: boolean
     required: false
@@ -215,6 +201,20 @@ parameters:
       pt_BR: Conteúdo personalizado para o texto da marca d'água.
     llm_description: Custom content for the watermark text.
     form: llm
+  - name: return_url
+    type: boolean
+    required: false
+    default: true
+    label:
+      en_US: Return URL
+      zh_Hans: 返回 URL
+      pt_BR: Retornar URL
+    human_description:
+      en_US: Whether to return the image URL (valid for 24 hours).
+      zh_Hans: 输出是否返回图片链接 （链接有效期为24小时）
+      pt_BR: Se deve retornar a URL da imagem (válida por 24 horas).
+    llm_description: Whether to return the image URL (valid for 24 hours).
+    form: form
 extra:
   python:
-    source: tools/jimeng_i2i_v30.py
+    source: tools/seed3l_single_ip.py

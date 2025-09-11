@@ -10,11 +10,11 @@ from dify_plugin.file.file import File
 from legacy.volc_sdk.VisualService import VisualService
 
 
-class JimengI2IV30Tool(Tool):
+class Seed3lSingleIpTool(Tool):
     def _invoke(self, tool_parameters: dict[str, Any]) -> Generator[ToolInvokeMessage]:
         # 初始化视觉服务
         visual_service = VisualService()
-
+        
         # 设置认证信息
         access_key_id = self.runtime.credentials.get("AccessKeyID", "")
         access_key_secret = self.runtime.credentials.get("AccessKeySecret", "")
@@ -34,7 +34,7 @@ class JimengI2IV30Tool(Tool):
         # 初始化图像数据列表
         image_urls = []
         binary_data_base64 = []
-        
+
         # 处理图像文件
         for image_file in image_files:
             if image_file.url:
@@ -43,7 +43,7 @@ class JimengI2IV30Tool(Tool):
                 binary_data_base64.append(
                     base64.b64encode(image_file.blob).decode("utf-8")
                 )
-        
+
         # 验证必需参数
         prompt = tool_parameters.get("prompt", "")
         if not prompt:
@@ -54,14 +54,15 @@ class JimengI2IV30Tool(Tool):
             raise ToolProviderCredentialValidationError(
                 "Either 'binary_data_base64_str', 'image_url', or 'image_file' must be provided."
             )
-
+        
         # 构建请求表单
         form = {
-            "req_key": "jimeng_i2i_v30",
+            "req_key": "seed3l_single_ip",
             "binary_data_base64": binary_data_base64,
             "image_urls": image_urls,
             "prompt": prompt,
             "seed": tool_parameters.get("seed", -1),
+            "use_rephraser": tool_parameters.get("use_rephraser", True),
             "width": tool_parameters.get("width", 1328),
             "height": tool_parameters.get("height", 1328),
             "return_url": tool_parameters.get("return_url", True),
@@ -95,11 +96,12 @@ class JimengI2IV30Tool(Tool):
                 # 处理API错误响应
                 error_msg = response.get("message", f"API调用失败，错误代码: {code}")
                 raise ToolProviderCredentialValidationError(error_msg)
-
+            
             yield self.create_json_message(response)
-
+            
         except ToolProviderCredentialValidationError:
             # 重新抛出已知的验证错误
-            raise    
+            raise
         except Exception as e:
-            raise ToolProviderCredentialValidationError(f"API调用失败: {str(e)}") from e
+            # 处理其他未知异常
+            raise ToolProviderCredentialValidationError(f"处理请求时发生错误: {str(e)}") from e
